@@ -256,20 +256,31 @@ export function initializePolyfill(updateCallback: () => void) {
     if (!signal?.aborted) {
       refresh = () => {
         if (!didSetDescriptors) {
-          const {sheet} = node;
-
-          if (sheet != null) {
-            setDescriptorsForStyleSheet(sheet, result.descriptors);
+          
+          let { sheet } = node;
+          
+          const whenSheetIsLoaded = (sheetParam: CSSStyleSheet) => {
+            setDescriptorsForStyleSheet(sheetParam, result.descriptors);
             didSetDescriptors = true;
 
             dispose = () => {
-              setDescriptorsForStyleSheet(sheet);
+              setDescriptorsForStyleSheet(sheetParam);
               documentInstance.mutate();
               scheduleUpdate();
             };
 
             documentInstance.mutate();
             scheduleUpdate();
+          }
+
+          
+          if (sheet != null) {
+            whenSheetIsLoaded(sheet as CSSStyleSheet);
+          } else {
+            node.onload = () => {
+              sheet = node.sheet as CSSStyleSheet;
+              whenSheetIsLoaded(sheet);
+            }
           }
         }
       };
