@@ -266,7 +266,7 @@ export function initializePolyfill(updateCallback: () => void) {
             dispose = () => {
               setDescriptorsForStyleSheet(sheetParam);
               documentInstance.mutate();
-              scheduleUpdate();
+              scheduleUpdate(); 
             };
 
             documentInstance.mutate();
