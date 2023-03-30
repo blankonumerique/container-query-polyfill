@@ -273,7 +273,6 @@ export function initializePolyfill(updateCallback: () => void) {
             scheduleUpdate();
           }
 
-          
           if (sheet != null) {
             whenSheetIsLoaded(sheet as CSSStyleSheet);
           } else {

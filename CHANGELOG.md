@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3](https://github.com/blankonumerique/container-query-polyfill/commit/3592b0d579e5a37a5e7e5f16c1d94409d550bf0d?diff=split) (2023-03-30)
+
+### Bug Fixes
+
+* Prevent Firefox from not loading in time stylesheets ([3592b0d](https://github.com/blankonumerique/container-query-polyfill/commit/3592b0d579e5a37a5e7e5f16c1d94409d550bf0d))
+
 ## [1.0.2](https://github.com/GoogleChromeLabs/container-query-polyfill/compare/v1.0.1...v1.0.2) (2022-11-08)
 
 
